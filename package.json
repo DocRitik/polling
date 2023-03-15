@@ -1,10 +1,10 @@
 {
     "name": "nodejs",
     "version": "1.0.0",
-    "main": "source/server.ts",
+    "main": "server.js",
     "scripts": {
-        "dev": "nodemon source/server.ts",
-        "build": "rm -rf build/ && prettier --write source/ && tsc"
+        "dev": "nodemon server.js",
+        "build": "rm -rf build/ && npm run start"
     },
     "author": "",
     "license": "ISC",
