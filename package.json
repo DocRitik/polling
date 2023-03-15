@@ -4,7 +4,7 @@
     "main": "server.js",
     "scripts": {
         "dev": "nodemon server.js",
-        "build": "rm -rf build/ && npm run start"
+        "build": "rm -rf build/"
     },
     "author": "",
     "license": "ISC",
