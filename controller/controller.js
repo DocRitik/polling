@@ -1,4 +1,4 @@
-const poll = require('../models/poll');
+const poll = require('../models/poll')
 const repo = require('../repository/pollRepo')
 const pollCount = require('./pollCountController')
 module.exports = {}
@@ -19,6 +19,15 @@ module.exports.getPoll = async(req, res, next) => {
     });
 };
 
+module.exports.helloWorld = async(req, res, next) => {
+    console.log("hit get hello api")
+    return res.status(200).json({
+        status: 200,
+        message: "successfully fetched",
+        data: "hello world"
+    });
+};
+
 async function getPollCount() {
     let pollData = await repo.getPoll()
     let result = {
@@ -33,9 +42,9 @@ async function getPollCount() {
 
     });
     return result
-}
-module.exports.login = async(req, res, next) => {
+};
 
+module.exports.login = async(req, res, next) => {
     console.log("hit put login api", req.body.fullName)
     const user = await repo.AddUser(req.body.fullName);
     console.log('user', user)
