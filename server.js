@@ -8,7 +8,8 @@ const routes = require('./routes/routes');
 const morgan = require('morgan');
 const pollCount = require('./controller/pollCountController')
 const cors = require('cors')
-    // connect with database
+require('dotenv').config();
+// connect with database
 connectWithDb();
 var bodyParser = require("body-parser");
 
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 // Start the server and initialize socket.io
-const server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+const server = app.listen(port, () => console.log(`Listening at `, process.env.url));
 const io = require("socket.io")(server);
 app.use(express.json())
 
