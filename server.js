@@ -27,7 +27,8 @@ app.use((req, res, next) => {
 });
 
 // Start the server and initialize socket.io
-const server = app.listen(port, () => console.log(`Listening at `, process.env.url));
+
+const server = app.listen(process.env.port, process.env.url);
 const io = require("socket.io")(server);
 app.use(express.json())
 
