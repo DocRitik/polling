@@ -1,8 +1,10 @@
-const express = require('express');
-const controller = require('../controller/controller');
+const express = require("express");
+const controller = require("../controller/controller");
 const router = express.Router();
 
-router.get('/poll', controller.getPoll);
-router.put('/login', controller.login);
-router.get('/hello', controller.helloWorld)
-module.exports = router
+router.post("/question", controller.createQnO);
+router.get("/question/:id", controller.getQnO);
+router.get("/questions", controller.getAllQnO);
+router.get("/poll", controller.getPoll);
+router.post("/login", controller.login);
+module.exports = router;

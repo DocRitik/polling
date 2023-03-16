@@ -1,12 +1,15 @@
-const mongoose = require('mongoose')
-const ai = require('../config/db');
+const mongoose = require("mongoose");
+const ai = require("../config/db");
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        default: "default",
-    }
-});
+      type: String,
+      required: true,
+    },
+  },
+  { versionKey: false }
+);
 // userSchema.pre('save', function(next) {
 //     console.log('in pre save')
 //         // Only increment when the document is new
@@ -20,15 +23,13 @@ const userSchema = new mongoose.Schema({
 //         next();
 //     }
 // });
-var userTable = mongoose.model('user', userSchema);
+var userTable = mongoose.model("user", userSchema);
 module.exports = {
-    createData: function(inputData, callback) {
+  addUser: function (inputData) {
+    return userTable.create(inputData);
+  },
 
-        userData = new userTable(inputData);
-        userData.save(function(err, data) {
-            if (err) console.log(err);
-            return callback(data);
-        });
-
-    }
-}
+  getUser: function (inputData) {
+    return userTable.findOne({}).where("name").equals(inputData);
+  },
+};
