@@ -1,10 +1,10 @@
 {
     "name": "nodejs",
     "version": "1.0.0",
-    "main": "source/server.ts",
+    "main": "server.js",
     "scripts": {
-        "dev": "nodemon source/server.ts",
-        "build": "rm -rf build/ && prettier --write source/ && tsc"
+        "dev": "nodemon server.js",
+        "build": "rm -rf build/"
     },
     "author": "",
     "license": "ISC",
@@ -17,9 +17,9 @@
         "bcrypt": "^5.1.0",
         "body-parser": "^1.20.1",
         "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
         "express": "^4.17.2",
         "mongoose": "^6.9.1",
-        "mongoose-auto-increment": "^5.0.1",
         "morgan": "^1.10.0",
         "mysql": "^2.18.1",
         "nodemon": "^2.0.15",
